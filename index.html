@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Boutique en Ligne</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h2>Baly Boutique</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#produits" class="nav-link">Produits</a></li>
+                <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Bienvenue chez Baly Boutique</h1>
+            <p class="fade-in">Découvrez nos produits de qualité exceptionnelle</p>
+            <a href="#produits" class="btn btn-primary fade-in">Voir nos produits</a>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section id="produits" class="products">
+        <div class="container">
+            <h2 class="section-title">Nos Produits</h2>
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit1.jpg" alt="Produit 1">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 1" data-price="25000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 1</h3>
+                        <p class="product-description">Description du produit 1</p>
+                        <p class="product-price">25 000 FCFA</p>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit2.jpg" alt="Produit 2">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 2" data-price="30000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 2</h3>
+                        <p class="product-description">Description du produit 2</p>
+                        <p class="product-price">30 000 FCFA</p>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit3.jpg" alt="Produit 3">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 3" data-price="20000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 3</h3>
+                        <p class="product-description">Description du produit 3</p>
+                        <p class="product-price">20 000 FCFA</p>
+                    </div>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit4.jpg" alt="Produit 4">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 4" data-price="35000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 4</h3>
+                        <p class="product-description">Description du produit 4</p>
+                        <p class="product-price">35 000 FCFA</p>
+                    </div>
+                </div>
+
+                <!-- Produit 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit5.jpg" alt="Produit 5">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 5" data-price="28000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 5</h3>
+                        <p class="product-description">Description du produit 5</p>
+                        <p class="product-price">28 000 FCFA</p>
+                    </div>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/produit6.jpg" alt="Produit 6">
+                        <div class="product-overlay">
+                            <button class="btn-whatsapp" data-product="Produit 6" data-price="22000">
+                                <i class="fab fa-whatsapp"></i> Commander
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Produit 6</h3>
+                        <p class="product-description">Description du produit 6</p>
+                        <p class="product-price">22 000 FCFA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">À Propos de Nous</h2>
+                    <p>Nous sommes une entreprise dédiée à vous offrir les meilleurs produits avec un service client exceptionnel. Notre mission est de rendre vos achats en ligne simples, sûrs et agréables.</p>
+                    <p>Avec plusieurs années d'expérience, nous nous engageons à la qualité et à la satisfaction de nos clients. Chaque produit est soigneusement sélectionné pour répondre à vos besoins.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h4>Livraison Rapide</h4>
+                            <p>Livraison dans toute la région</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Paiement Sécurisé</h4>
+                            <p>Transactions 100% sécurisées</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <h4>Support 24/7</h4>
+                            <p>Assistance à tout moment</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="about-image">
+                    <img src="images/about.jpg" alt="À propos de nous">
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-Nous</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Dakar, Sénégal</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+221 XX XXX XX XX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@balyboutique.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+221 XX XXX XX XX</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MaBoutique</h3>
+                    <p>Votre destination pour des produits de qualité</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MaBoutique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/221XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
