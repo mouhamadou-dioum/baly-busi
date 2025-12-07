@@ -38,37 +38,35 @@ const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
 whatsappButtons.forEach(button => {
     button.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopPropagation(); // Empêcher le carousel de changer
+        e.stopPropagation();
         
-        // Récupérer les infos du produit
         const productName = this.getAttribute('data-product');
         const productPrice = this.getAttribute('data-price');
         
-        // Trouver l'image du produit
         const card = this.closest('.card');
         let productImage = card.querySelector('.card-img-top');
         
-        // Si c'est dans un carousel, prendre l'image active
         const activeSlide = card.querySelector('.carousel-item.active');
         if (activeSlide) {
             productImage = activeSlide.querySelector('.card-img-top');
         }
         
-        const imageName = productImage ? productImage.getAttribute('alt') : productName;
+        let imageUrl = '';
+        if (productImage) {
+            const imageSrc = productImage.getAttribute('src');
+            imageUrl = window.location.origin + '/' + imageSrc;
+        }
         
-        // Créer le message WhatsApp
         const message = `Bonjour! 👋
 
 Je suis intéressé(e) par ce produit :
 
 📦 *${productName}*
 💰 Prix: ${productPrice} FCFA
-
-📸 Image : ${imageName}
+${imageUrl ? `\n🔗 Voir le produit : ${imageUrl}` : ''}
 
 Pouvez-vous me donner plus d'informations ?`;
         
-        // Encoder et ouvrir WhatsApp
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
         
@@ -86,27 +84,21 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Récupérer les valeurs
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
-        // Créer le message WhatsApp
         const whatsappMessage = `*📧 Nouveau message de contact*
 
 *Nom:* ${name}
 *Email:* ${email}
 *Message:* ${message}`;
         
-        // Ouvrir WhatsApp
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
         
-        // Réinitialiser le formulaire
         contactForm.reset();
-        
-        // Afficher notification Bootstrap
         showToast('Message envoyé! ✅');
     });
 }
@@ -116,7 +108,6 @@ if (contactForm) {
 // NOTIFICATION (Toast Bootstrap)
 // ============================================
 function showToast(message) {
-    // Créer un toast Bootstrap
     const toastHTML = `
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 11000">
             <div class="toast show" role="alert">
@@ -135,7 +126,6 @@ function showToast(message) {
     toastContainer.innerHTML = toastHTML;
     document.body.appendChild(toastContainer);
     
-    // Retirer après 3 secondes
     setTimeout(() => {
         toastContainer.remove();
     }, 3000);
@@ -166,7 +156,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 document.querySelectorAll('.carousel').forEach(carousel => {
     carousel.addEventListener('mouseenter', function() {
-        // Arrêter l'auto-play si activé
         const bsCarousel = bootstrap.Carousel.getInstance(this);
         if (bsCarousel) {
             bsCarousel.pause();
@@ -176,7 +165,7 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
 
 // ============================================
-// ANIMATION DES CARDS AU SCROLL (Optionnel)
+// ANIMATION DES CARDS AU SCROLL
 // ============================================
 const observerOptions = {
     threshold: 0.1,
@@ -198,7 +187,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observer toutes les cards
 document.querySelectorAll('.product-card').forEach(card => {
     observer.observe(card);
 });
