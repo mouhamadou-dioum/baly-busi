@@ -1,0 +1,569 @@
+/* ============================================
+   VARIABLES CSS
+   ============================================ */
+:root {
+    --primary-green: #28a745;
+    --dark-green: #1e7e34;
+    --gradient-start: #28a745;
+    --gradient-end: #20c997;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+   
+}
+#accueil{
+    background-image: url('images/chh.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ============================================
+   ANIMATIONS KEYFRAMES
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+    transition: all var(--transition-medium);
+    backdrop-filter: blur(10px);
+    animation: fadeInDown 0.8s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: var(--shadow-md);
+}
+
+.navbar-brand {
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    transition: left var(--transition-medium);
+}
+
+.navbar-brand:hover::before {
+    left: 0;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link {
+    position: relative;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.nav-link:hover {
+    color: var(--primary-green) !important;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: 
+        radial-gradient(circle at 20% 50%, rgba(40, 167, 69, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(32, 201, 151, 0.1) 0%, transparent 50%); */
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero h1 {
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero p {
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero .btn {
+    animation: fadeInUp 1s ease 0.6s both;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.hero .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.hero .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 2px;
+}
+
+/* ============================================
+   PRODUCT CARDS
+   ============================================ */
+.product-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--transition-medium);
+    width: 300px;
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Animation délai pour chaque card */
+.product-card:nth-child(1) { animation: fadeInUp 0.6s ease 0.1s both; }
+.product-card:nth-child(2) { animation: fadeInUp 0.6s ease 0.2s both; }
+.product-card:nth-child(3) { animation: fadeInUp 0.6s ease 0.3s both; }
+.product-card:nth-child(4) { animation: fadeInUp 0.6s ease 0.4s both; }
+.product-card:nth-child(5) { animation: fadeInUp 0.6s ease 0.5s both; }
+.product-card:nth-child(6) { animation: fadeInUp 0.6s ease 0.6s both; }
+
+/* ============================================
+   PRODUCT IMAGE
+   ============================================ */
+.product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-image-wrapper img {
+    transform: scale(1.15);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* ============================================
+   WHATSAPP BUTTONS
+   ============================================ */
+.btn-whatsapp {
+    transform: translateY(30px);
+    transition: all var(--transition-fast);
+}
+
+.product-card:hover .btn-whatsapp {
+    transform: translateY(0);
+    animation: bounce 0.6s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.5);
+}
+
+.btn-whatsapp i {
+    transition: transform var(--transition-fast);
+}
+
+.btn-whatsapp:hover i {
+    transform: scale(1.2) rotate(15deg);
+}
+
+/* ============================================
+   CAROUSEL
+   ============================================ */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(40, 167, 69, 0.8);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: var(--primary-green);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    bottom: -40px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-green);
+    transition: all var(--transition-fast);
+}
+
+.carousel-indicators button.active {
+    transform: scale(1.3);
+    background-color: var(--dark-green);
+}
+
+.badge {
+    animation: pulse 2s infinite;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   CARD BODY
+   ============================================ */
+.card-title {
+    transition: all var(--transition-fast);
+}
+
+.product-card:hover .card-title {
+    color: var(--primary-green);
+    transform: translateX(5px);
+}
+
+.card-text {
+    transition: all var(--transition-fast);
+}
+
+.product-card:hover .card-text {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   À PROPOS - Icônes
+   ============================================ */
+#apropos i {
+    transition: all var(--transition-fast);
+}
+
+#apropos i:hover {
+    transform: scale(1.2) rotateY(360deg);
+    color: var(--dark-green) !important;
+}
+
+#apropos .col-md-4 {
+    transition: all var(--transition-fast);
+}
+
+#apropos .col-md-4:hover {
+    transform: translateY(-10px);
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+#contact .d-flex {
+    transition: all var(--transition-fast);
+}
+
+#contact .d-flex:hover {
+    transform: translateX(10px);
+}
+
+#contact .d-flex i {
+    transition: all var(--transition-fast);
+}
+
+#contact .d-flex:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.form-control {
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    transform: translateY(-2px);
+}
+
+#contactForm button {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+#contactForm button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: width 0.6s, height 0.6s;
+}
+
+#contactForm button:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+#contactForm button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer a {
+    transition: all var(--transition-fast);
+}
+
+footer a:hover {
+    transform: translateY(-3px);
+    color: var(--primary-green) !important;
+}
+
+footer .btn-sm {
+    transition: all var(--transition-fast);
+}
+
+footer .btn-sm:hover {
+    transform: scale(1.2) rotate(360deg);
+    background-color: var(--dark-green) !important;
+}
+
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    transition: all var(--transition-fast);
+    animation: float 3s ease-in-out infinite;
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.whatsapp-float i {
+    animation: bounce 1s infinite;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+    }
+    
+    .product-image-wrapper {
+        height: 250px;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+}

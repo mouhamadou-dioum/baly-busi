@@ -3,274 +3,534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Boutique en Ligne</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Baly Boutique</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Votre CSS personnalisé -->
+    <link rel="stylesheet" href="style-bootstrap.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
-            <div class="logo">
-                <h2>Baly Boutique</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
-                <li><a href="#produits" class="nav-link">Produits</a></li>
-                <li><a href="#apropos" class="nav-link">À Propos</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a class="navbar-brand text-success fw-bold fs-4" href="#">Baly Boutique</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produits">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apropos">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Section Accueil -->
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">Bienvenue chez Baly Boutique</h1>
-            <p class="fade-in">Découvrez nos produits de qualité exceptionnelle</p>
-            <a href="#produits" class="btn btn-primary fade-in">Voir nos produits</a>
+   <section id="accueil" class="hero hero-with-image d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold text-dark mb-4">Bienvenue chez Baly Boutique</h1>
+            <p class="lead text-dark mb-4">Découvrez nos produits de qualité exceptionnelle</p>
+            <a href="#produits" class="btn btn-success btn-lg rounded-pill px-5">Voir nos produits</a>
         </div>
     </section>
 
     <!-- Section Produits -->
-    <section id="produits" class="products">
+    <section id="produits" class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title">Nos Produits</h2>
-            <div class="products-grid">
-                <!-- Produit 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit1.jpg" alt="Produit 1">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 1" data-price="25000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
+            <h2 class="text-center mb-5 section-title">Nos Produits</h2>
+            
+            <div class="row g-4">
+                
+                <!-- CARTE NORMALE (Produit simple) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div class="product-image-wrapper position-relative">
+                            <img src="images/vaselineKarite1.jpg" class="card-img-top" alt="Produit 1">
+                            <div class="product-overlay">
+                                <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                        data-product="Vaseline Petite" 
+                                        data-price="15000">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Vaseline Karite</h5>
+                            <p class="card-text text-muted fw-bold">Hydratation intense pour la peau</p>
+                            <p class="text-success fw-bold fs-5">15 000 FCFA</p>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3>Produit 1</h3>
-                        <p class="product-description">Description du produit 1</p>
-                        <p class="product-price">25 000 FCFA</p>
+                </div>
+
+                <!-- CAROUSEL BOOTSTRAP (Produit avec variantes) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div id="carouselVaseline" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/advanced1.jpg" class="card-img-top" alt="Vaseline Petit">
+                                        <!-- <span class="badge bg-success position-absolute top-0 end-0 m-3">Petit</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Petite (50ml)" 
+                                                    data-price="15000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline advanced</h5>
+                                        <!-- <p class="text-muted small">Taille: Petite (50ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Hydratation intense pour la peau</p>
+                                        <p class="text-success fw-bold fs-5">15 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/daily1.jpg" class="card-img-top" alt="Vaseline Moyen">
+                                        <!-- <span class="badge bg-primary position-absolute top-0 end-0 m-3">Moyen</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Moyenne (100ml)" 
+                                                    data-price="25000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Daily</h5>
+                                        <!-- <p class="text-muted small">Taille: Moyenne (100ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Hydratation intense pour la peau</p>
+                                        <p class="text-success fw-bold fs-5">25 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 3 -->
+                                <div class="carousel-item">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/vasiline.jpg" class="card-img-top" alt="Vaseline Grand">
+                                        <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-3">Grand</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Grande (200ml)" 
+                                                    data-price="40000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Coco Radiant</h5>
+                                        <p class="text-muted small">Taille: Grande (200ml)</p>
+                                        <p class="card-text text-muted fw-bold">Hydratation intense pour la peau</p>
+                                        <p class="text-success fw-bold fs-5">40 000 FCFA</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Contrôles carousel -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselVaseline" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselVaseline" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                            
+                            <!-- Indicateurs -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselVaseline" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselVaseline" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselVaseline" data-bs-slide-to="2"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- caroussel2  lip-->
+                 <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div id="carousellip" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/lipBleu1.jpg" class="card-img-top" alt="Vaseline Petit">
+                                        <!-- <span class="badge bg-success position-absolute top-0 end-0 m-3">Petit</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Petite (50ml)" 
+                                                    data-price="15000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Lip Therapy</h5>
+                                        <!-- <p class="text-muted small">Taille: Petite (50ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Un baume à lèvres hydratant formulé avec de la gelée de pétrole pure</p>
+                                        <p class="text-success fw-bold fs-5">15 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/lipMarron1.jpg" class="card-img-top" alt="Vaseline Moyen">
+                                        <!-- <span class="badge bg-primary position-absolute top-0 end-0 m-3">Moyen</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Moyenne (100ml)" 
+                                                    data-price="25000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Lip Therapy</h5>
+                                        <!-- <p class="text-muted small">Taille: Moyenne (100ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Un baume à lèvres hydratant formulé avec de la gelée de pétrole pure</p>
+                                        <p class="text-success fw-bold fs-5">25 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 3 -->
+                                <div class="carousel-item">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/lipRose1.jpg" class="card-img-top" alt="Vaseline Grand">
+                                        <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-3">Grand</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Grande (200ml)" 
+                                                    data-price="40000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Lip Therapy</h5>
+                                        <!-- <p class="text-muted small">Taille: Grande (200ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Un baume à lèvres hydratant formulé avec de la gelée de pétrole pure</p>
+                                        <p class="text-success fw-bold fs-5">40 000 FCFA</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Contrôles carousel -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousellip" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousellip" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                            
+                            <!-- Indicateurs -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousellip" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carousellip" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carousellip" data-bs-slide-to="2"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- caroussel carmex -->
+                 <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div id="carmexLip" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/carmex1.jpg" class="card-img-top" alt="Vaseline Petit">
+                                        <!-- <span class="badge bg-success position-absolute top-0 end-0 m-3">Petit</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Petite (50ml)" 
+                                                    data-price="15000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Lip Therapy</h5>
+                                        <!-- <p class="text-muted small">Taille: Petite (50ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Un baume à lèvres hydratant formulé avec de la gelée de pétrole pure</p>
+                                        <p class="text-success fw-bold fs-5">15 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="product-image-wrapper position-relative">
+                                        <img src="images/carmexLip1.jpg" class="card-img-top" alt="Vaseline Moyen">
+                                        <!-- <span class="badge bg-primary position-absolute top-0 end-0 m-3">Moyen</span> -->
+                                        <div class="product-overlay">
+                                            <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                                    data-product="Vaseline - Moyenne (100ml)" 
+                                                    data-price="25000">
+                                                <i class="fab fa-whatsapp"></i> Commander
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vaseline Lip Therapy</h5>
+                                        <!-- <p class="text-muted small">Taille: Moyenne (100ml)</p> -->
+                                        <p class="card-text text-muted fw-bold">Un baume à lèvres hydratant formulé avec de la gelée de pétrole pure</p>
+                                        <p class="text-success fw-bold fs-5">25 000 FCFA</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 3 -->
+                               
+                            </div>
+                            
+                            <!-- Contrôles carousel -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carmexLip" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carmexLip" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                            
+                            <!-- Indicateurs -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carmexLip" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carmexLip" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carmexLip" data-bs-slide-to="2"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Produit 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit2.jpg" alt="Produit 2">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 2" data-price="30000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div class="product-image-wrapper position-relative">
+                            <img src="images/carmex1.jpg" class="card-img-top" alt="Produit 2">
+                            <div class="product-overlay">
+                                <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                        data-product="Produit 2" 
+                                        data-price="30000">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Carmex</h5>
+                            <p class="card-text text-muted fw-bold">Un baume réparateur connu pour son effet apaisant instantané</p>
+                            <p class="text-success fw-bold fs-5">30 000 FCFA</p>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3>Produit 2</h3>
-                        <p class="product-description">Description du produit 2</p>
-                        <p class="product-price">30 000 FCFA</p>
-                    </div>
-                </div>
+                </div> -->
 
                 <!-- Produit 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit3.jpg" alt="Produit 3">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 3" data-price="20000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div class="product-image-wrapper position-relative">
+                            <img src="images/produit3.jpg" class="card-img-top" alt="Produit 3">
+                            <div class="product-overlay">
+                                <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                        data-product="Produit 3" 
+                                        data-price="20000">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Produit 3</h5>
+                            <p class="card-text text-muted fw-bold">Description du produit 3</p>
+                            <p class="text-success fw-bold fs-5">20 000 FCFA</p>
                         </div>
                     </div>
-                    <div class="product-info">
-                        <h3>Produit 3</h3>
-                        <p class="product-description">Description du produit 3</p>
-                        <p class="product-price">20 000 FCFA</p>
+                </div> -->
+                 <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div class="product-image-wrapper position-relative">
+                            <img src="images/carmexLip1.jpg" class="card-img-top" alt="Produit 3">
+                            <div class="product-overlay">
+                                <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                        data-product="Produit 3" 
+                                        data-price="20000">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Carmex Lip</h5>
+                            <p class="card-text text-muted fw-bold">Un baume réparateur connu pour son effet apaisant instantané</p>
+                            <p class="text-success fw-bold fs-5">20 000 FCFA</p>
+                        </div>
                     </div>
-                </div>
+                </div> -->
+                 <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <div class="product-image-wrapper position-relative">
+                            <img src="images/produit3.jpg" class="card-img-top" alt="Produit 3">
+                            <div class="product-overlay">
+                                <button class="btn btn-success btn-whatsapp rounded-pill" 
+                                        data-product="Produit 3" 
+                                        data-price="20000">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Produit 3</h5>
+                            <p class="card-text text-muted fw-bold">Description du produit 3</p>
+                            <p class="text-success fw-bold fs-5">20 000 FCFA</p>
+                        </div>
+                    </div>
+                </div> -->
 
-                <!-- Produit 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit4.jpg" alt="Produit 4">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 4" data-price="35000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Produit 4</h3>
-                        <p class="product-description">Description du produit 4</p>
-                        <p class="product-price">35 000 FCFA</p>
-                    </div>
-                </div>
-
-                <!-- Produit 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit5.jpg" alt="Produit 5">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 5" data-price="28000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Produit 5</h3>
-                        <p class="product-description">Description du produit 5</p>
-                        <p class="product-price">28 000 FCFA</p>
-                    </div>
-                </div>
-
-                <!-- Produit 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/produit6.jpg" alt="Produit 6">
-                        <div class="product-overlay">
-                            <button class="btn-whatsapp" data-product="Produit 6" data-price="22000">
-                                <i class="fab fa-whatsapp"></i> Commander
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Produit 6</h3>
-                        <p class="product-description">Description du produit 6</p>
-                        <p class="product-price">22 000 FCFA</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Section À Propos -->
-    <section id="apropos" class="about">
+    <section id="apropos" class="py-5">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">À Propos de Nous</h2>
-                    <p>Nous sommes une entreprise dédiée à vous offrir les meilleurs produits avec un service client exceptionnel. Notre mission est de rendre vos achats en ligne simples, sûrs et agréables.</p>
-                    <p>Avec plusieurs années d'expérience, nous nous engageons à la qualité et à la satisfaction de nos clients. Chaque produit est soigneusement sélectionné pour répondre à vos besoins.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-shipping-fast"></i>
-                            <h4>Livraison Rapide</h4>
-                            <p>Livraison dans toute la région</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <h4>Paiement Sécurisé</h4>
-                            <p>Transactions 100% sécurisées</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-headset"></i>
-                            <h4>Support 24/7</h4>
-                            <p>Assistance à tout moment</p>
-                        </div>
-                    </div>
+            <h2 class="text-center mb-5 section-title">À Propos de Nous</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="lead text-muted">Nous sommes une entreprise dédiée à vous offrir les meilleurs produits avec un service client exceptionnel. Notre mission est de rendre vos achats en ligne simples, sûrs et agréables.</p>
+                    <p class="lead text-muted">Avec plusieurs années d'expérience, nous nous engageons à la qualité et à la satisfaction de nos clients.</p>
                 </div>
-                <!-- <div class="about-image">
-                    <img src="images/about.jpg" alt="À propos de nous">
-                </div> -->
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-shipping-fast text-success mb-3" style="font-size: 3rem;"></i>
+                    <h5>Livraison Rapide</h5>
+                    <p class="text-muted">Livraison partout à Dakar</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-shield-alt text-success mb-3" style="font-size: 3rem;"></i>
+                    <h5>Paiement Sécurisé</h5>
+                    <p class="text-muted">Transactions 100% sécurisées</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-headset text-success mb-3" style="font-size: 3rem;"></i>
+                    <h5>Support 24/7</h5>
+                    <p class="text-muted">Assistance à tout moment</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section Contact -->
-    <section id="contact" class="contact">
+    <section id="contact" class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title">Contactez-Nous</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
+            <h2 class="text-center mb-5 section-title">Contactez-Nous</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-map-marker-alt text-success fs-2 me-3"></i>
                         <div>
-                            <h4>Adresse</h4>
-                            <p>Dakar, Sénégal</p>
+                            <h5>Adresse</h5>
+                            <p class="text-muted">Dakar, Sénégal</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-phone text-success fs-2 me-3"></i>
                         <div>
-                            <h4>Téléphone</h4>
-                            <p>+221 XX XXX XX XX</p>
+                            <h5>Téléphone</h5>
+                            <p class="text-muted">+221 77 862 99 35</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-envelope text-success fs-2 me-3"></i>
                         <div>
-                            <h4>Email</h4>
-                            <p>contact@balyboutique.com</p>
+                            <h5>Email</h5>
+                            <p class="text-muted">contact@balyboutique.com</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
+                    <div class="d-flex mb-4">
+                        <i class="fab fa-whatsapp text-success fs-2 me-3"></i>
                         <div>
-                            <h4>WhatsApp</h4>
-                            <p>+221 XX XXX XX XX</p>
+                            <h5>WhatsApp</h5>
+                            <p class="text-muted">+221 77 862 99 35</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Votre nom" required>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Votre message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 rounded-pill">Envoyer</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Votre email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="bg-dark text-white py-5">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>MaBoutique</h3>
-                    <p>Votre destination pour des produits de qualité</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h4 class="text-success">Baly Boutique</h4>
+                    <p class="text-white-50">Votre destination pour des produits de qualité</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Liens Rapides</h4>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#produits">Produits</a></li>
-                        <li><a href="#apropos">À Propos</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="col-md-4">
+                    <h5 class="text-success">Liens Rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#accueil" class="text-white-50 text-decoration-none">Accueil</a></li>
+                        <li><a href="#produits" class="text-white-50 text-decoration-none">Produits</a></li>
+                        <li><a href="#apropos" class="text-white-50 text-decoration-none">À Propos</a></li>
+                        <li><a href="#contact" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <div class="col-md-4">
+                    <h5 class="text-success">Suivez-nous</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-success btn-sm rounded-circle"><i class="fab fa-facebook"></i></a>
+                        <a href="" class="btn btn-success btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-success btn-sm rounded-circle"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-success btn-sm rounded-circle"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 MaBoutique. Tous droits réservés.</p>
-            </div>
+            <hr class="border-secondary my-4">
+            <p class="text-center text-white-50 mb-0">&copy; 2024 Baly Boutique. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Bouton WhatsApp flottant -->
-    <a href="https://wa.me/221XXXXXXXXX" class="whatsapp-float" target="_blank">
+    <!-- Bouton WhatsApp Flottant -->
+    <a href="https://wa.me/221778629935" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Votre script personnalisé -->
+    <script src="script-bootstrap.js"></script>
 </body>
 </html>
