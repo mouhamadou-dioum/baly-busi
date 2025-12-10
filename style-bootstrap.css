@@ -14,11 +14,10 @@
    
 }
 #accueil{
-    background-image: url('images/chh.png');
+    background: url("images/chh.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 /* ============================================
@@ -550,7 +549,7 @@ footer .btn-sm:hover {
    ============================================ */
 @media (max-width: 768px) {
     .hero {
-        min-height: 80vh;
+        min-height: 90vh;
     }
     
     .product-image-wrapper {
