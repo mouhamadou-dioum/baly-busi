@@ -63,7 +63,7 @@ Je suis intéressé(e) par ce produit :
 
 📦 *${productName}*
 💰 Prix: ${productPrice} FCFA
-${imageUrl ? `` : ''}
+${imageUrl ? `\n🔗 Voir le produit : ${imageUrl}` : ''}
 
 
 Pouvez-vous me donner plus d'informations ?`;
